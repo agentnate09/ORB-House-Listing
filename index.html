@@ -7,6 +7,15 @@
 
 <style>
 
+:root{
+    --yellow:#ffd54f;
+    --blue:#3f8efc;
+    --lightblue:#eef6ff;
+    --dark:#222;
+    --gray:#666;
+    --white:#ffffff;
+}
+
 *{
     margin:0;
     padding:0;
@@ -16,182 +25,192 @@
 }
 
 body{
-    background:#f7f7f7;
+    background:#f7f9fc;
     color:#333;
-    line-height:1.6;
+    line-height:1.7;
 }
 
-/* HEADER */
+/* HERO */
 
 header{
-    position:relative;
-    height:650px;
-    background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600');
+    height:720px;
+    background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1800');
     background-size:cover;
     background-position:center;
+    position:relative;
 }
 
 .overlay{
     background:rgba(0,0,0,0.45);
     width:100%;
     height:100%;
-    padding:40px;
     display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
+    align-items:flex-end;
+    padding:50px;
 }
 
-.hero-box{
+.hero-card{
     background:white;
-    padding:30px;
-    border-radius:18px;
-    max-width:700px;
-    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+    padding:35px;
+    border-radius:20px;
+    max-width:760px;
+    box-shadow:0 6px 30px rgba(0,0,0,0.25);
+    border-top:8px solid var(--blue);
 }
 
-.status{
+.sale-status{
     display:inline-block;
-    background:#ffd54f;
-    color:#333;
-    padding:8px 16px;
-    border-radius:20px;
+    background:var(--yellow);
+    padding:10px 18px;
+    border-radius:30px;
     font-weight:bold;
-    margin-bottom:15px;
+    margin-bottom:18px;
 }
 
 .price{
-    font-size:48px;
+    font-size:54px;
     font-weight:bold;
-    color:#222;
+    color:var(--dark);
 }
 
 .monthly{
-    color:#666;
-    margin-top:5px;
+    color:var(--gray);
+    margin-top:8px;
+    font-size:18px;
 }
 
 .address{
-    margin-top:12px;
-    font-size:20px;
+    margin-top:18px;
+    font-size:22px;
+    font-weight:bold;
 }
 
-.quick-info{
+.overview-grid{
     display:flex;
-    gap:25px;
     flex-wrap:wrap;
-    margin-top:20px;
+    gap:18px;
+    margin-top:25px;
 }
 
-.quick-info div{
-    background:#f5f5f5;
-    padding:12px 18px;
-    border-radius:12px;
+.overview-item{
+    background:var(--lightblue);
+    padding:14px 18px;
+    border-radius:14px;
+    border-left:5px solid var(--blue);
     font-weight:bold;
 }
 
 .open-house{
-    margin-top:18px;
-    color:#444;
+    margin-top:22px;
     font-weight:bold;
+    color:#444;
 }
 
-/* NAVIGATION */
+/* NAV */
 
 nav{
     position:sticky;
     top:0;
-    z-index:1000;
     background:white;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
-    padding:15px;
+    z-index:1000;
+    box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    border-bottom:3px solid var(--blue);
 }
 
 nav ul{
+    list-style:none;
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    list-style:none;
-    gap:20px;
+    gap:30px;
+    padding:18px;
 }
 
 nav a{
     text-decoration:none;
     color:#333;
     font-weight:bold;
+    padding-bottom:6px;
+    border-bottom:3px solid transparent;
     transition:0.3s;
 }
 
 nav a:hover{
-    color:#f4b400;
+    color:var(--blue);
+}
+
+nav a.active{
+    color:var(--blue);
+    border-bottom:3px solid var(--blue);
 }
 
 /* MAIN */
 
 .container{
     width:90%;
-    max-width:1200px;
+    max-width:1250px;
     margin:auto;
-    padding:50px 0;
+    padding:60px 0;
 }
 
 section{
-    margin-bottom:60px;
+    margin-bottom:70px;
+    scroll-margin-top:120px;
 }
 
 section h2{
-    margin-bottom:25px;
-    font-size:32px;
-    color:#222;
-    border-left:8px solid #ffd54f;
-    padding-left:15px;
+    font-size:34px;
+    margin-bottom:28px;
+    padding-left:16px;
+    border-left:8px solid var(--blue);
+    color:var(--dark);
 }
-
-/* CARDS */
 
 .card{
     background:white;
-    padding:30px;
-    border-radius:18px;
-    box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 3px 15px rgba(0,0,0,0.08);
+    border-top:5px solid var(--yellow);
 }
-
-.stats{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-    margin-top:20px;
-}
-
-.stat-box{
-    background:#fff8e1;
-    padding:15px 20px;
-    border-radius:12px;
-    font-weight:bold;
-}
-
-/* GRID */
 
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
+    gap:24px;
+}
+
+.stats{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:28px;
+}
+
+.stat{
+    background:var(--lightblue);
+    padding:15px 22px;
+    border-radius:14px;
+    border-left:5px solid var(--blue);
+    font-weight:bold;
 }
 
 /* RATINGS */
 
 .rating{
-    margin-bottom:18px;
+    margin-bottom:22px;
 }
 
 .bar{
+    height:18px;
     background:#ddd;
     border-radius:20px;
     overflow:hidden;
-    height:18px;
+    margin-top:6px;
 }
 
 .fill{
-    background:#ffd54f;
+    background:var(--blue);
     height:100%;
 }
 
@@ -200,28 +219,30 @@ section h2{
 .gallery{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
+    gap:22px;
 }
 
 .gallery img{
     width:100%;
-    height:250px;
+    height:260px;
     object-fit:cover;
     border-radius:18px;
     transition:0.3s;
+    border:4px solid transparent;
 }
 
 .gallery img:hover{
     transform:scale(1.02);
+    border-color:var(--blue);
 }
 
 /* FOOTER */
 
 footer{
-    background:#ffd54f;
-    color:#333;
+    background:linear-gradient(90deg,var(--yellow),var(--blue));
+    color:white;
     text-align:center;
-    padding:30px;
+    padding:35px;
     font-size:20px;
     font-weight:bold;
 }
@@ -232,11 +253,12 @@ footer{
 <body>
 
 <header>
+
     <div class="overlay">
 
-        <div class="hero-box">
+        <div class="hero-card">
 
-            <div class="status">FOR SALE</div>
+            <div class="sale-status">FOR SALE</div>
 
             <div class="price">$684,000</div>
 
@@ -248,11 +270,15 @@ footer{
                 14 Borgvägen Lane, Quiet Suburban District, Sweden
             </div>
 
-            <div class="quick-info">
-                <div>3 Beds</div>
-                <div>2 Baths</div>
-                <div>1,950 Sq Ft</div>
-                <div>HOA Community</div>
+            <div class="overview-grid">
+
+                <div class="overview-item">3 Bedrooms</div>
+                <div class="overview-item">2 Bathrooms</div>
+                <div class="overview-item">1,950 Sq Ft</div>
+                <div class="overview-item">Attached Garage</div>
+                <div class="overview-item">HOA Community</div>
+                <div class="overview-item">Built in 1981</div>
+
             </div>
 
             <div class="open-house">
@@ -262,17 +288,20 @@ footer{
         </div>
 
     </div>
+
 </header>
 
 <nav>
+
     <ul>
-        <li><a href="#about">About</a></li>
+        <li><a href="#about" class="active">About</a></li>
         <li><a href="#neighborhood">Neighborhood</a></li>
         <li><a href="#history">Past Owner History</a></li>
         <li><a href="#location">Location & Area</a></li>
         <li><a href="#details">Property Details</a></li>
         <li><a href="#gallery">Photos</a></li>
     </ul>
+
 </nav>
 
 <div class="container">
@@ -286,44 +315,27 @@ footer{
     <div class="card">
 
         <p>
-            Nestled within a peaceful Scandinavian-style HOA community, this charming suburban townhouse captures the warmth and quiet simplicity of everyday life. Featuring bright natural lighting, comfortable living spaces, carefully maintained interiors, and a welcoming atmosphere, the home reflects decades of care and craftsmanship. Located along calm residential streets lined with trees and neighboring townhomes, the property offers a cozy yet timeless environment ideal for families, commuters, and anyone seeking a quieter lifestyle.
+            Nestled within a peaceful Scandinavian-style neighborhood, this charming townhouse captures the warmth and simplicity of suburban life in Sweden. The property features bright natural lighting, thoughtfully designed living spaces, clean modern finishes, and a quiet atmosphere that reflects decades of careful ownership and maintenance. Located along calm residential streets surrounded by neighboring homes and shared green spaces, the home offers a timeless environment ideal for families, commuters, and anyone seeking comfort and stability.
         </p>
 
         <br>
 
         <div class="grid">
 
-            <div>
-                <strong>Year Built:</strong> 1981
-            </div>
-
-            <div>
-                <strong>Property Type:</strong> Townhouse
-            </div>
-
-            <div>
-                <strong>HOA Dues:</strong> $280/month
-            </div>
-
-            <div>
-                <strong>Parking:</strong> Attached Garage + Street Parking
-            </div>
-
-            <div>
-                <strong>Price Per Sq Ft:</strong> $350
-            </div>
-
-            <div>
-                <strong>Listed By:</strong> Parvaneh & Patrick Real Estate
-            </div>
+            <div><strong>Year Built:</strong> 1981</div>
+            <div><strong>Property Type:</strong> Townhouse</div>
+            <div><strong>HOA Dues:</strong> $280/month</div>
+            <div><strong>Parking:</strong> Attached Garage + Street Parking</div>
+            <div><strong>Price Per Sq Ft:</strong> $350</div>
+            <div><strong>Listed By:</strong> Parvaneh & Patrick Realty</div>
 
         </div>
 
         <div class="stats">
 
-            <div class="stat-box">8 Days Listed</div>
-            <div class="stat-box">96 Views</div>
-            <div class="stat-box">2 Favorites</div>
+            <div class="stat">8 Days Listed</div>
+            <div class="stat">96 Views</div>
+            <div class="stat">2 Favorites</div>
 
         </div>
 
@@ -349,49 +361,49 @@ footer{
         <div class="card">
             <h3>Patrick</h3>
             <p>
-                Patrick is Parvaneh’s supportive husband who balances her strong personality with calm patience. Together, they create a lively family atmosphere that contrasts Ove’s quiet routines.
+                Patrick is Parvaneh’s supportive husband who balances her strong personality with patience and calmness. Together, they create a lively family atmosphere that contrasts Ove’s quiet routines.
             </p>
         </div>
 
         <div class="card">
             <h3>Rune</h3>
             <p>
-                Once Ove’s closest friend, Rune shared many of the same values regarding hard work and order. Their friendship became strained over the years, but deep down their bond reflected decades of loyalty.
+                Once Ove’s closest friend, Rune shared many of the same values regarding hard work and responsibility. Their friendship became strained over the years, yet their shared history remained meaningful.
             </p>
         </div>
 
         <div class="card">
             <h3>Anita</h3>
             <p>
-                Anita remains caring and resilient while supporting Rune through difficult circumstances. She often represents kindness and understanding within the community.
+                Anita remains compassionate and resilient while supporting Rune through difficult circumstances. She often represents understanding and kindness within the community.
             </p>
         </div>
 
         <div class="card">
             <h3>Jimmy</h3>
             <p>
-                Jimmy is one of the younger residents whose presence adds humor and realism to the neighborhood dynamic. His interactions highlight generational differences within the community.
+                Jimmy is one of the younger residents whose presence adds realism and humor to the neighborhood. His interactions help show the contrast between generations within the community.
             </p>
         </div>
 
         <div class="card">
             <h3>Mirsad</h3>
             <p>
-                Mirsad is a shy teenager searching for acceptance and identity. Ove’s willingness to quietly support him demonstrates Ove’s hidden compassion and personal growth.
+                Mirsad is a shy teenager searching for identity and acceptance. Ove’s willingness to quietly support him demonstrates his hidden compassion and personal growth.
             </p>
         </div>
 
         <div class="card">
             <h3>Adrian</h3>
             <p>
-                Adrian represents another layer of the diverse neighborhood community that slowly becomes connected through Ove. His story contributes to the novel’s themes of belonging and empathy.
+                Adrian contributes to the diverse network of people who gradually become connected through Ove. His story reflects the novel’s larger themes of empathy and belonging.
             </p>
         </div>
 
         <div class="card">
             <h3>Lena</h3>
             <p>
-                Lena adds to the supportive network of neighbors who shape the neighborhood’s sense of community. Her interactions emphasize the warmth hidden beneath everyday suburban life.
+                Lena helps reinforce the supportive and interconnected nature of the neighborhood. Her interactions emphasize the warmth hidden beneath everyday suburban life.
             </p>
         </div>
 
@@ -399,7 +411,7 @@ footer{
 
 </section>
 
-<!-- OWNER HISTORY -->
+<!-- HISTORY -->
 
 <section id="history">
 
@@ -408,19 +420,19 @@ footer{
     <div class="card">
 
         <p>
-            Before meeting Sonja, Ove lived a quiet and difficult life shaped heavily by his father’s influence. His father taught him discipline, responsibility, and the importance of honesty and hard work. After losing his mother at a young age and later experiencing the loss of his father, Ove became reserved and isolated, focusing much of his energy on routines and practical responsibilities rather than relationships.
+            Before meeting Sonja, Ove lived a difficult and quiet life shaped heavily by his father’s influence. His father taught him discipline, honesty, responsibility, and the importance of hard work. After experiencing the loss of both his mother and father at a young age, Ove became isolated and emotionally reserved, focusing his life around routine and practical responsibilities rather than relationships.
         </p>
 
         <br><br>
 
         <p>
-            Ove’s life changed completely after meeting Sonja. Her warmth, intelligence, and optimism balanced Ove’s strict and serious personality, giving him a sense of purpose and happiness he had never known before. Together they built a loving life within their neighborhood home, sharing routines, memories, and dreams despite enduring hardships and personal loss. Sonja encouraged Ove to see more beauty and compassion in the world around him, helping him become more patient and understanding toward others. Even after her passing, her influence remained deeply connected to the home and the memories they created together over decades of marriage.
+            Ove’s life changed entirely after meeting Sonja. Her warmth, optimism, and intelligence balanced Ove’s strict personality, giving him happiness and purpose that he had never known before. Together they built a loving life within their neighborhood home, sharing routines, memories, and dreams despite facing hardships and personal loss along the way. Sonja encouraged Ove to see more compassion and beauty in the world around him, helping him become more patient and understanding toward others. Even after her passing, her influence remained deeply tied to the home and the life they had created together over decades of marriage.
         </p>
 
         <br><br>
 
         <p>
-            In the years following Sonja’s death, Ove slowly began opening himself up to the people around him through unexpected friendships and acts of kindness. New neighbors, especially Parvaneh and her family, brought energy and connection back into his life, helping him rediscover the importance of community. Though he remained stubborn and deeply attached to his routines, Ove gradually learned to accept change and appreciate the people who cared about him. His journey became one of healing, personal growth, and rediscovering purpose through friendship, generosity, and belonging.
+            In the years following Sonja’s death, Ove slowly began reconnecting with the people around him through unexpected friendships and acts of kindness. New neighbors, especially Parvaneh and her family, brought energy and connection back into his life, helping him rediscover the importance of community and belonging. Though he remained stubborn and attached to his routines, Ove gradually learned to accept change and appreciate the people who cared about him. His journey ultimately became one of healing, generosity, and personal growth, showing how friendship and compassion can transform a person’s life.
         </p>
 
     </div>
@@ -436,19 +448,22 @@ footer{
     <div class="grid">
 
         <div class="card">
-            <h3>Nearby Places</h3>
+
+            <h3>Nearby Locations</h3>
 
             <ul>
                 <li>Community Train Station</li>
                 <li>Local Market & Bakery</li>
-                <li>Neighborhood Park</li>
+                <li>Neighborhood Walking Trails</li>
                 <li>Elementary School</li>
-                <li>Quiet Walking Trails</li>
-                <li>Public Transit Access</li>
+                <li>Public Green Spaces</li>
+                <li>Transit Connections</li>
             </ul>
+
         </div>
 
         <div class="card">
+
             <h3>Lifestyle Ratings</h3>
 
             <div class="rating">
@@ -482,7 +497,7 @@ footer{
 
 </section>
 
-<!-- PROPERTY DETAILS -->
+<!-- DETAILS -->
 
 <section id="details">
 
@@ -491,27 +506,33 @@ footer{
     <div class="grid">
 
         <div class="card">
+
             <h3>Interior Features</h3>
 
             <p>
-                Spacious living room with large windows, warm wood flooring, comfortable dining space, updated kitchen appliances, dedicated storage areas, natural lighting throughout, and cozy Scandinavian-inspired finishes designed for practical everyday living.
+                Spacious living room with oversized windows, warm wood flooring, comfortable dining space, updated kitchen appliances, dedicated storage areas, and Scandinavian-inspired finishes designed for practical everyday living. The interior emphasizes simplicity, comfort, and functionality while maintaining a bright and welcoming atmosphere throughout the home.
             </p>
+
         </div>
 
         <div class="card">
+
             <h3>Exterior Features</h3>
 
             <p>
-                Attached garage, maintained front landscaping, shared HOA-maintained pathways, neighborhood street parking, quiet sidewalks, and a compact backyard patio ideal for outdoor seating and gardening.
+                Attached garage, maintained landscaping, HOA-managed walkways, quiet sidewalks, and a private backyard patio ideal for gardening or outdoor seating. The surrounding neighborhood features organized residential streets and shared green spaces that contribute to the calm suburban atmosphere.
             </p>
+
         </div>
 
         <div class="card">
+
             <h3>Utilities & Community</h3>
 
             <p>
-                Central heating, reliable city water services, high-speed internet access, HOA maintenance coverage, snow removal services, and organized neighborhood upkeep consistent with Scandinavian suburban communities.
+                Central heating, reliable city water services, high-speed internet access, snow removal services, HOA maintenance coverage, and organized community upkeep consistent with Scandinavian suburban neighborhoods. Residents benefit from quiet surroundings and strong neighborhood involvement.
             </p>
+
         </div>
 
     </div>
@@ -543,6 +564,39 @@ footer{
 <footer>
     ORB Project Website – Inspired by the novel <em>A Man Called Ove</em>
 </footer>
+
+<script>
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 150;
+
+        if(pageYOffset >= sectionTop){
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if(link.getAttribute("href").includes(current)){
+            link.classList.add("active");
+        }
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>
