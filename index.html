@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 <title>A Man Called Ove | ORB Project Listing</title>
 
 <style>
@@ -16,20 +17,26 @@
     --gray:#666;
     --white:#ffffff;
     --green:#34f70c;
+    --font-sans: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-serif: 'Merriweather', Georgia, 'Times New Roman', serif;
+    --base-font-size:16px;
 }
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
     scroll-behavior:smooth;
 }
 
 body{
     background:#ffffff;
-    color:#333;
-    line-height:1.7;
+    color:#222;
+    line-height:1.6;
+    font-family:var(--font-sans);
+    font-size:var(--base-font-size);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
 }
     
 .contact-card{
@@ -53,13 +60,14 @@ body{
 }
 
 .contact-info h3{
-    font-size:32px;
+    font-size:1.5rem;
     margin-bottom:15px;
     color:var(--dark);
 }
 
 .contact-info p{
     margin-bottom:15px;
+    font-size:1rem;
 }
 
 .contact-details{
@@ -97,7 +105,7 @@ body{
 /* HERO */
 
 header{
-    height:720px;
+    min-height:60vh;
     background-image:url('https://www.swedenestates.com/images/slider_img/MED5PD33XL38P6GJJM39G.jpg');
     background-size:cover;
     background-position:center;
@@ -132,9 +140,10 @@ header{
 }
 
 .price{
-    font-size:54px;
-    font-weight:bold;
+    font-size:clamp(2rem,6vw,3.5rem);
+    font-weight:700;
     color:var(--dark);
+    font-family:var(--font-serif);
 }
 
 .monthly{
@@ -190,6 +199,27 @@ nav ul{
     padding:18px;
 }
 
+.menu-toggle{
+    display:none;
+    background:transparent;
+    border:0;
+    cursor:pointer;
+    padding:12px 18px;
+}
+
+.menu-toggle .bar{display:block;width:22px;height:3px;background:#333;margin:5px 0;border-radius:3px;}
+
+@media (max-width:900px){
+    nav ul{display:none;flex-direction:column;align-items:stretch;gap:0;padding:0}
+    nav.open ul{display:flex}
+    .menu-toggle{display:block}
+    nav a{display:block;padding:14px 18px;border-bottom:1px solid #eee}
+    header{min-height:50vh}
+    .overlay{padding:24px}
+    .hero-card{max-width:95%}
+    .contact-image img{width:200px;height:240px}
+}
+
 nav a{
     text-decoration:none;
     color:#333;
@@ -223,12 +253,18 @@ section{
 }
 
 section h2{
-    font-size:34px;
+    font-size:clamp(1.5rem,2.2vw,2.25rem);
     margin-bottom:28px;
     padding-left:16px;
     border-left:8px solid var(--blue);
     color:var(--dark);
+    font-family:var(--font-serif);
+    font-weight:700;
 }
+
+.card h3{font-family:var(--font-serif);font-size:1.125rem;margin-bottom:10px;color:var(--dark);}
+
+nav a{font-size:1rem;padding-bottom:8px}
 
 .card{
     background:white;
@@ -286,6 +322,50 @@ section h2{
     gap:22px;
 }
 
+/* NEIGHBORHOOD CAROUSEL */
+#neighborhood .neighborhood-carousel{
+    position:relative;
+}
+
+#neighborhood .neighborhood-track{
+    display:flex;
+    gap:18px;
+    overflow:hidden;
+    scroll-behavior:smooth;
+    padding:10px 0;
+}
+
+#neighborhood .neighborhood-track .card{
+    min-width:340px;
+    flex:0 0 340px;
+}
+
+.carousel-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:var(--white);
+    border:1px solid #ddd;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(0,0,0,0.12);
+}
+
+.carousel-btn.prev{left:-20px}
+.carousel-btn.next{right:-20px}
+
+@media (max-width:900px){
+    .carousel-btn{display:none}
+    #neighborhood .neighborhood-track{padding:6px 6px}
+    #neighborhood .neighborhood-track .card{min-width:300px;flex:0 0 300px}
+}
+
 .gallery img{
     width:100%;
     height:260px;
@@ -316,6 +396,25 @@ footer{
 
 <body>
 
+<nav id="main-nav">
+
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <ul>
+        <li><a href="#about" class="active">Overview</a></li>
+        <li><a href="#neighborhood">Neighborhood</a></li>
+        <li><a href="#history">Past Owner History</a></li>
+        <li><a href="#location">Location & Area</a></li>
+        <li><a href="#details">Property Details</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+    </ul>
+
+</nav>
+
 <header>
 
     <div class="overlay">
@@ -339,7 +438,7 @@ footer{
                 <div class="overview-item">2 Bedrooms</div>
                 <div class="overview-item">1 Bathrooms</div>
                 <div class="overview-item">1,950 Sq Ft</div>
-                <div class="overview-item">Attatched Garage</div>
+                <div class="overview-item">Attached Garage</div>
                 <div class="overview-item">HOA Community</div>
                 <div class="overview-item">Built in 1981</div>
 
@@ -354,19 +453,6 @@ footer{
     </div>
 
 </header>
-
-<nav>
-
-    <ul>
-        <li><a href="#about" class="active">Overview</a></li>
-        <li><a href="#neighborhood">Neighborhood</a></li>
-        <li><a href="#history">Past Owner History</a></li>
-        <li><a href="#location">Location & Area</a></li>
-        <li><a href="#details">Property Details</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-    </ul>
-
-</nav>
 
 <div class="container">
 
@@ -414,7 +500,11 @@ Disclaimer: Buyers must be deemed respectful and trustworthy by the HOA and the 
 
     <h2>Neighborhood Details</h2>
 
-    <div class="grid">
+    <div class="neighborhood-carousel">
+
+        <button class="carousel-btn prev" aria-label="Previous">‹</button>
+
+        <div class="neighborhood-track">
 
         <div class="card">
             <h3>Parvaneh</h3>
@@ -427,6 +517,7 @@ Disclaimer: Buyers must be deemed respectful and trustworthy by the HOA and the 
             <h3>Patrick</h3>
             <p>
                 IT consultant Patrick is known to Ove as the Lanky One and the idiot husband to Parvaneh. Patrick can be described as awkward and unknowing, failing at simple tasks and ultimately requiring much help from Ove. While he was never seen in quite the same light as his wife, Patrick was ultimately accepted by Ove despite his stupidity.
+            </p>
         </div>
 
         <div class="card">
@@ -452,15 +543,15 @@ Disclaimer: Buyers must be deemed respectful and trustworthy by the HOA and the 
         
         <div class="card">
             <h3>Mirsad</h3>
-            <p>
-                Misrad is a young man that works in a cafe with Adrian. After coming out to his father as gay, Ove was the first to support him despite initially thinking of him as an anxious person. He later married Jimmy and adopted a daughter.
+                <p>
+                Mirsad is a young man that works in a cafe with Adrian. After coming out to his father as gay, Ove was the first to support him despite initially thinking of him as an anxious person. He later married Jimmy and adopted a daughter.
             </p>
         </div>
 
         <div class="card">
             <h3>Adrian</h3>
             <p>
-                Adrian is a teenager who works with Misrad and frequently visits Ove’s neighborhood to catch glimpses of the girl he is in love with. He’s awkward but hardworking, gaining the respect of Ove. With Ove’s help, Adrian fixes his bike, buys a proper car, and even inherits Ove’s prized Saab after his death.
+                Adrian is a teenager who works with Mirsad and frequently visits Ove’s neighborhood to catch glimpses of the girl he is in love with. He’s awkward but hardworking, gaining the respect of Ove. With Ove’s help, Adrian fixes his bike, buys a proper car, and even inherits Ove’s prized Saab after his death.
             </p>
         </div>
 
@@ -470,6 +561,10 @@ Disclaimer: Buyers must be deemed respectful and trustworthy by the HOA and the 
                 Lena is a reporter for the local paper who desperately wanted to interview Ove following his “heroic” rescue of a man who fell onto train tracks. While her incessant and determined personality drove Ove crazy, her unique skills and traits eventually helped the neighborhood fight back against the “man in the white shirt” who tried to put Rune in assisted living.
             </p>
         </div>
+
+        </div>
+
+        <button class="carousel-btn next" aria-label="Next">›</button>
 
     </div>
 
@@ -483,8 +578,8 @@ Disclaimer: Buyers must be deemed respectful and trustworthy by the HOA and the 
 
     <div class="card">
 
-        <p>
-            Before meeting Sonja, the love of his life, Ove lived a difficult and quiet life shaped entirely by his father’s influence. HIs father instilled in him discipline, honesty, responsibility, and the importance of hard work, making him the person he was. After the loss of both his parents at a young age, Ove became isolated and emotionally reserved. He created a strict routine and schedule of practical responsibilities to avoid relationships.
+            <p>
+            Before meeting Sonja, the love of his life, Ove lived a difficult and quiet life shaped entirely by his father’s influence. His father instilled in him discipline, honesty, responsibility, and the importance of hard work, making him the person he was. After the loss of both his parents at a young age, Ove became isolated and emotionally reserved. He created a strict routine and schedule of practical responsibilities to avoid relationships.
         </p>
 
         <br><br>
@@ -496,7 +591,7 @@ Disclaimer: Buyers must be deemed respectful and trustworthy by the HOA and the 
         <br><br>
 
         <p>
-            In the years following Sonja’s death, Ove slowly began reconnecting with the people around him through unexpected friendships and acts of kindness. The introduction to his new neighbors, Parvaneh and Patrick are the primary causes of this. After forcefully inserting herself into his life, Parvaneh brought connection and energy back into Ove;s life, helping him rediscover the importance of belonging to a community. Though he still remained stubborn and attached to his routines, he gradually began to accept change and appreciate those that cared about him. His fight against the men in white shirts to save his old friend Rune from assisted living homes symbolizes just how much he had grown, showing how compassion and friendship could change a person’s life, regardless if they’re stuck up in their old ways.
+            In the years following Sonja’s death, Ove slowly began reconnecting with the people around him through unexpected friendships and acts of kindness. The introduction to his new neighbors, Parvaneh and Patrick are the primary causes of this. After forcefully inserting herself into his life, Parvaneh brought connection and energy back into Ove's life, helping him rediscover the importance of belonging to a community. Though he still remained stubborn and attached to his routines, he gradually began to accept change and appreciate those that cared about him. His fight against the men in white shirts to save his old friend Rune from assisted living homes symbolizes just how much he had grown, showing how compassion and friendship could change a person’s life, regardless if they’re stuck up in their old ways.
         </p>
 
     </div>
@@ -642,6 +737,8 @@ Disclaimer: Buyers must be deemed respectful and trustworthy by the HOA and the 
             <p>
                 Nathan Duong is the lead listing representative for the ORB Housing Authority. Specializing in suburban HOA properties and neighborhood-focused housing, Duong is dedicated to helping YOU find, sell, or purchase your dream property.
 
+            </p>
+
             <p>
                 Inspired by the themes of <em>A Man Called Ove</em>, this listing was carefully designed to reflect the warmth, structure, and sense of belonging found throughout the novel’s neighborhood community.
             </p>
@@ -671,35 +768,78 @@ Disclaimer: Buyers must be deemed respectful and trustworthy by the HOA and the 
 </footer>
 
 <script>
-
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav a");
+const nav = document.getElementById('main-nav');
+const menuToggle = document.getElementById('menu-toggle');
 
 window.addEventListener("scroll", () => {
-
     let current = "";
-
     sections.forEach(section => {
-
         const sectionTop = section.offsetTop - 150;
-
-        if(pageYOffset >= sectionTop){
+        if (pageYOffset >= sectionTop) {
             current = section.getAttribute("id");
         }
-
     });
-
     navLinks.forEach(link => {
-
         link.classList.remove("active");
-
-        if(link.getAttribute("href").includes(current)){
+        if (link.getAttribute("href").includes(current)) {
             link.classList.add("active");
         }
+    });
+});
 
+// Mobile menu toggle
+if (menuToggle && nav) {
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
     });
 
+    // Close menu when a nav link is clicked (mobile)
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (nav.classList.contains('open')) nav.classList.remove('open');
+        });
+    });
+}
+
+// Close mobile menu when resizing to desktop
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 900 && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+    }
 });
+
+// Neighborhood carousel controls
+const neighTrack = document.querySelector('#neighborhood .neighborhood-track');
+const prevBtn = document.querySelector('#neighborhood .carousel-btn.prev');
+const nextBtn = document.querySelector('#neighborhood .carousel-btn.next');
+if (neighTrack && prevBtn && nextBtn) {
+    const getScrollAmount = () => {
+        const card = neighTrack.querySelector('.card');
+        const gap = 18;
+        return (card ? card.offsetWidth : Math.min(window.innerWidth * 0.8, 340)) + gap;
+    }
+    prevBtn.addEventListener('click', () => {
+        neighTrack.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+        neighTrack.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+    });
+    // allow swipe/drag scrolling on touch devices
+    let isDown = false, startX, scrollLeft;
+    neighTrack.addEventListener('pointerdown', (e) => {
+        isDown = true; neighTrack.setPointerCapture(e.pointerId);
+        startX = e.clientX; scrollLeft = neighTrack.scrollLeft;
+    });
+    neighTrack.addEventListener('pointermove', (e) => {
+        if(!isDown) return;
+        const x = e.clientX; const walk = startX - x;
+        neighTrack.scrollLeft = scrollLeft + walk;
+    });
+    neighTrack.addEventListener('pointerup', (e) => { isDown = false; });
+    neighTrack.addEventListener('pointerleave', (e) => { isDown = false; });
+}
 
 </script>
 
