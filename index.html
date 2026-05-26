@@ -30,6 +30,68 @@ body{
     color:#333;
     line-height:1.7;
 }
+    
+.contact-card{
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    align-items:center;
+}
+
+.contact-image img{
+    width:260px;
+    height:320px;
+    object-fit:cover;
+    border-radius:20px;
+    border:5px solid var(--blue);
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+}
+
+.contact-info{
+    flex:1;
+}
+
+.contact-info h3{
+    font-size:32px;
+    margin-bottom:15px;
+    color:var(--dark);
+}
+
+.contact-info p{
+    margin-bottom:15px;
+}
+
+.contact-details{
+    margin-top:20px;
+    margin-bottom:25px;
+}
+
+.contact-details div{
+    margin-bottom:10px;
+    background:var(--lightblue);
+    padding:12px 16px;
+    border-radius:12px;
+    border-left:5px solid var(--blue);
+    font-weight:bold;
+}
+
+.ask-button{
+    display:inline-block;
+    background:var(--blue);
+    color:white;
+    padding:14px 28px;
+    border-radius:12px;
+    font-weight:bold;
+    text-decoration:none;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.ask-button:hover{
+    background:#2f78dd;
+    transform:translateY(-2px);
+}
 
 /* HERO */
 
@@ -500,6 +562,48 @@ Disclaimer: Buyers must be deemed respectful and trustworthy by the HOA and the 
 
 </section>
 
+<section id="contact">
+
+    <h2>About Nathan Duong</h2>
+
+    <div class="card contact-card">
+
+        <div class="contact-image">
+
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200" alt="Real Estate Agent">
+
+        </div>
+
+        <div class="contact-info">
+
+            <h3>Nathan Duong</h3>
+
+            <p>
+                Nathan Duong is the lead listing representative for this quiet Scandinavian-inspired townhouse community. Specializing in suburban HOA properties and neighborhood-focused housing, Nathan is dedicated to helping respectful and community-oriented buyers find homes that value comfort, connection, and long-term stability.
+            </p>
+
+            <p>
+                Inspired by the themes of <em>A Man Called Ove</em>, this listing was carefully designed to reflect the warmth, structure, and sense of belonging found throughout the novel’s neighborhood community.
+            </p>
+
+            <div class="contact-details">
+
+                <div>📞 Phone: (408) 555-1842</div>
+
+                <div>✉️ Email: nduongrealty@email.com</div>
+
+                <div>📍 Office: Sigtuna Community Realty Group</div>
+
+            </div>
+
+            <a class="ask-button">Ask a Question</a>
+
+        </div>
+
+    </div>
+
+</section>
+    
 <!-- DETAILS -->
 
 <section id="details">
